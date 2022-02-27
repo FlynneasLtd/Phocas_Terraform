@@ -60,6 +60,14 @@ The script uses platform, requests, json, os, shutil, ctypes, sys; of which requ
 - A backup is performed, if there is a current file that is different the new expected file, it will move the old file to the backup folder. The backup folder is created if it does not exist.
 - If the file is the same as the old one, it does not download. If the file is new it moves old and downloads the new file.
 
+## Scheduling
+This runs crontab in root mode.
+sudo crontab -e
+0 9 * * MON TZ="NZST" /usr/bin/terraform phocas-terraform-download.py
+
+In windows run at Sunday 21:00 UTC in task scheduler as time zones tick box only works relative to the machine which will always be set to UTC. Quickest way to do this is run the task when UTC+12 begins for 9am.
+An alternative in Windows is to use PowerShell but essentially would cover the same idea.
+
 ## How could the script be changed or improved?
 For the purpose of this challenge, I chose to have most actions inside a function, particularly the getOSDetail function; this could be declared outside any functions. I chose to make it a function because it returns two values that I later need to use. 
 Also as previously mentioned, elevation can be added to work inside the script however as stated because I've chosen to make it variable, to save on lines written I would make the scheduled task elevated. Although it can be kept variable to OS and include the equivalent elevation in the script; I chose not to as to keep the code clean to the challenge's purpose. As with 99% of scripts, there are always changes to be made at some point in the scripts life and I am no Python Master so there are bound to be changes/optimisations to be made.
