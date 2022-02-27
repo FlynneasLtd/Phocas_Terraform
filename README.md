@@ -1,7 +1,7 @@
 # Phocas Terraform
 Download the latest version of Terraform for Windows/Linux using Python
 
-This repo contains scripts to download the lastest stable release of Terraform, schedule the script and backup the existing file retaining its version name. The testing machine was Windows 11 Pro.
+This repo contains scripts to download the lastest stable release of Terraform, schedule the script and backup the existing file retaining its version name. The testing machine was Windows 11 Pro using Python 3.10
 Please see below a description of the task.
 
 ## Problem
@@ -40,7 +40,7 @@ The script runs assuming a few things; including that python 3 is installed. Fir
   - Schedule the script in cron but add to the root cron using sudo crontab -e
 
 A virtual environment was created to run the script, although not necessary but is recommended, which for the purpose of this test it was used.
-The testing machine was on Windows 11 using Python 3.9 and a "pip install requests" command was used.
+The "pip install requests" command was used.
 
 As I have chosen to make the script versatile for operating system, I therefore chose to make the elevation commands outside the script. However to run inside the script, you can use the following depending on the OS.
 - Windows
